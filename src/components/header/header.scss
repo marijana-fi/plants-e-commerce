@@ -1,0 +1,47 @@
+.navbar {
+	padding: 20px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	.logo {
+		color: #000;
+		margin-bottom: 0;
+		font-family: "Playfair Display", serif;
+	}
+	.cart {
+		width: 40px;
+		height: 40px;
+		position: relative;
+		transition: transform 0.3s;
+		&:hover {
+			cursor: pointer;
+			&:before {
+				transform: scale(1.3);
+			}
+		}
+		&:before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-radius: 50%;
+			background: #fbf7f4;
+			transform: scale(1);
+			transition: transform 0.3s;
+		}
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			max-width: 20px;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
