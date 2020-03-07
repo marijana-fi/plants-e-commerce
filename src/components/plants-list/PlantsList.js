@@ -2,18 +2,15 @@ import React from "react";
 import Plant from "../plant-item/Plant";
 import "./plants-list.scss";
 
-const PlantsList = (props) => {
-	const {plants, selectedPlant} = props;
+const PlantsList = props => {
+	const { plants, selectedPlant } = props;
 	return (
 		<div className="plants-list">
 			{plants.map(plant => {
-
-
 				return (
 					<Plant
-					selectedPlant={selectedPlant}
 						name={plant.name}
-						latin = {plant.latin}
+						latin={plant.latin}
 						key={plant.id}
 						id={plant.id}
 						desc={plant.desc}

@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./plant.scss";
 import { Link, navigate } from "@reach/router";
 
 const Plant = props => {
+	const [data, setData] = useState({});
+
+	useEffect(() => {
+		console.log(data);
+	}, [setData]);
+
 	const { name, latin, desc, price, img, id, selectedPlant } = props;
-const plant = {
-	name,
-	latin,
-	price,
-	desc, 
-	id,
-	img
-}
+	const plant = {
+		name,
+		latin,
+		price,
+		desc,
+		id,
+		img
+	};
 	const handlePlantClick = id => {
-		selectedPlant(plant);
-		navigate("/:id");
+		navigate(`/${id}`);
 	};
 
 	return (

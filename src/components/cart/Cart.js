@@ -2,7 +2,9 @@ import React from "react";
 import Counter from "../counter/Counter";
 import "./cart.scss";
 
-const Cart = ({ plant, cart, closeCart }) => {
+const Cart = ({  cart, closeCart }) => {
+
+	
 	const { name, latin, price, img } = plant;
 
 	const handleCloseClick = () => {
