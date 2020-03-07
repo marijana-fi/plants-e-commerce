@@ -5,10 +5,6 @@ import { Link, navigate } from "@reach/router";
 const Plant = props => {
 	const [data, setData] = useState({});
 
-	useEffect(() => {
-		console.log(data);
-	}, [setData]);
-
 	const { name, latin, desc, price, img, id, selectedPlant } = props;
 	const plant = {
 		name,

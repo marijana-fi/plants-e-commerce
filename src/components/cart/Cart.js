@@ -1,48 +1,52 @@
-import React from "react";
+import React, { useContext } from "react";
 import Counter from "../counter/Counter";
 import "./cart.scss";
+import { CartContext } from "../../context/CartContext";
+import CartPlantItem from "../cart-plant-item/CartPlantItem";
 
-const Cart = ({  cart, closeCart }) => {
+const Cart = () => {
+	const { isOpen, cart, toggleCart } = useContext(CartContext);
 
-	
-	const { name, latin, price, img } = plant;
-
-	const handleCloseClick = () => {
-		closeCart();
+	const handleClick = () => {
+		toggleCart();
 	};
-
 	return (
-		<div className={cart ? "cart-modal active" : "cart-modal"}>
+		<div className={isOpen ? "cart-modal active" : "cart-modal"}>
 			<aside className="cart">
+				<div className="cart-header">
+					<h3 className="cart-title">Cart</h3>
+					<button className="cart-close" onClick={handleClick}>
+						&times;
+					</button>
+				</div>
+				{cart.map(item => {
+					return (
+						<CartPlantItem
+							name={item.name}
+							key={item.id}
+							itemCount={item.count}
+							price={item.price}
+							img={item.img}
+						/>
+					);
+				})}
+			</aside>
+
+			{/* <aside className="cart">
 				<div className="cart-header">
 					<h3 className="cart-title">Cart</h3>
 					<button className="cart-close" onClick={handleCloseClick}>
 						&times;
 					</button>
 				</div>
-				<div className="item-wrap">
-					<img className="item-img" src={img} alt={name} />
-
-					<div className="item-info">
-						<div className="item-text">
-							<h2 className="name">{name}</h2>
-							<h3 className="price">{price}</h3>
-						</div>
-						<div className="count-wrap">
-							<Counter />
-							<div className="delete-item">
-								<img src="./img/trash-icon.svg" alt="" />
-							</div>
-						</div>
-					</div>
-				</div>
+				
 
 				<div className="cart-total">
 					<h3>Total</h3>
 					<h3>$00.00</h3>
 				</div>
 				<button className="cart-checkout">Checkout</button>
-			</aside>
+			</aside> */}
 		</div>
 	);
 };

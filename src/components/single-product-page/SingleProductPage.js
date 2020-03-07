@@ -1,14 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Counter from "../counter/Counter";
 import SamplePlants from "../../SamplePlants";
 import "./single-product-page.scss";
+import { CartContext } from "./../../context/CartContext";
 
-const SingleProductPage = ({ openCart, id }) => {
-	const filtered = SamplePlants.filter(plant => plant.id === +id);
+const SingleProductPage = ({ id }) => {
+	const [count, setCount] = useState(1);
+
+	const decrementCount = () => {
+		setCount(count === 1 ? 1 : count - 1);
+	};
+	const incrementCount = () => {
+		setCount(count + 1);
+	};
+	const filtered = Object.values(SamplePlants).filter(
+		plant => plant.id === +id
+	);
+
 	const [data, setData] = useState(filtered[0]);
+	const { isOpen, toggleCart, cart, updateCart } = useContext(CartContext);
 
-	const handleButtonClick = () => {
-		openCart();
+	const handleButtonClick = (data, count) => {
+		const plant = {
+			id: data.id,
+			name: data.name,
+			price: data.price,
+			img: data.img,
+			count
+		};
+		updateCart(plant);
+		toggleCart();
 	};
 	return (
 		<div className="single-product">
@@ -23,8 +44,15 @@ const SingleProductPage = ({ openCart, id }) => {
 				<p className="desc">{data.desc}</p>
 
 				<div className="btn-wrap">
-					<Counter />
-					<button className="btn" onClick={handleButtonClick}>
+					<Counter
+						count={count}
+						decrementCount={decrementCount}
+						incrementCount={incrementCount}
+					/>
+					<button
+						className="btn"
+						onClick={() => handleButtonClick(data, count)}
+					>
 						{" "}
 						Add to cart
 					</button>

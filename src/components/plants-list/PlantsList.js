@@ -4,9 +4,10 @@ import "./plants-list.scss";
 
 const PlantsList = props => {
 	const { plants, selectedPlant } = props;
+
 	return (
 		<div className="plants-list">
-			{plants.map(plant => {
+			{Object.values(plants).map(plant => {
 				return (
 					<Plant
 						name={plant.name}

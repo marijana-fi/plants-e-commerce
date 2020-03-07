@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import "./counter.scss";
 
-const Counter = () => {
-	const [count, setCount] = useState(1);
-
-	const decrementCount = () => {
-		setCount(count === 1 ? 1 : count - 1);
-	};
-	const incrementCount = () => {
-		setCount(count + 1);
-	};
+const Counter = ({ incrementCount, decrementCount, count }) => {
 	return (
 		<div className="qty-wrap">
 			<div className="counter">
