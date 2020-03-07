@@ -1,14 +1,14 @@
 import React from "react";
-import "./cart.scss";
 import Counter from "../counter/Counter";
+import "./cart.scss";
 
 const Cart = ({ plant, cart, closeCart }) => {
 	const { name, latin, price, img } = plant;
 
 	const handleCloseClick = () => {
-		console.log("clicked");
 		closeCart();
 	};
+
 	return (
 		<div className={cart ? "cart-modal active" : "cart-modal"}>
 			<aside className="cart">
