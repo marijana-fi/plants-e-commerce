@@ -5,15 +5,18 @@ export const CartContext = createContext();
 class CartContextProvider extends Component {
 	state = {
 		isOpen: false,
-		cart: []
+		cart: {}
 	};
 
 	toggleCart = () => {
 		this.setState({ isOpen: !this.state.isOpen });
 	};
 
-	updateCart = plant => {
-		this.setState({ cart: [...this.state.cart, plant] }, () => {
+	updateCart = (key, count) => {
+		const cart = { ...this.state.cart };
+		cart[key] = cart[key] + count || count;
+
+		this.setState({ cart }, () => {
 			console.log(this.state.cart);
 		});
 	};

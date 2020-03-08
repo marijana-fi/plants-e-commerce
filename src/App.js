@@ -18,7 +18,7 @@ function App() {
 				<PlantsList path="/" plants={plants} />
 				<SingleProductPage path="/:id" />
 			</Router>
-			<Cart />
+			<Cart plants={plants} />
 		</CartContextProvider>
 	);
 }

@@ -3,9 +3,11 @@ import Counter from "../counter/Counter";
 import SamplePlants from "../../SamplePlants";
 import "./single-product-page.scss";
 import { CartContext } from "./../../context/CartContext";
+import { formatPrice } from "../../helpers";
 
 const SingleProductPage = ({ id }) => {
 	const [count, setCount] = useState(1);
+	const { isOpen, toggleCart, cart, updateCart } = useContext(CartContext);
 
 	const decrementCount = () => {
 		setCount(count === 1 ? 1 : count - 1);
@@ -13,22 +15,18 @@ const SingleProductPage = ({ id }) => {
 	const incrementCount = () => {
 		setCount(count + 1);
 	};
+
 	const filtered = Object.values(SamplePlants).filter(
 		plant => plant.id === +id
 	);
-
+	const filteredKey = Object.keys(SamplePlants).filter(key =>
+		key.includes(id)
+	);
 	const [data, setData] = useState(filtered[0]);
-	const { isOpen, toggleCart, cart, updateCart } = useContext(CartContext);
 
-	const handleButtonClick = (data, count) => {
-		const plant = {
-			id: data.id,
-			name: data.name,
-			price: data.price,
-			img: data.img,
-			count
-		};
-		updateCart(plant);
+	const handleButtonClick = () => {
+		setCount(1);
+		updateCart(filteredKey, count);
 		toggleCart();
 	};
 	return (
@@ -39,7 +37,7 @@ const SingleProductPage = ({ id }) => {
 			<div className="product-info">
 				<h1 className="name">{data.name}</h1>
 				<h5 className="latin">{data.latin}</h5>
-				<h3 className="price">{data.price}</h3>
+				<h3 className="price">{formatPrice(data.price)}</h3>
 				<h4 className="desc">Size</h4>
 				<p className="desc">{data.desc}</p>
 
@@ -49,11 +47,7 @@ const SingleProductPage = ({ id }) => {
 						decrementCount={decrementCount}
 						incrementCount={incrementCount}
 					/>
-					<button
-						className="btn"
-						onClick={() => handleButtonClick(data, count)}
-					>
-						{" "}
+					<button className="btn" onClick={() => handleButtonClick()}>
 						Add to cart
 					</button>
 				</div>

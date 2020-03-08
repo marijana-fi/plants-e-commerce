@@ -7,18 +7,8 @@ const PlantsList = props => {
 
 	return (
 		<div className="plants-list">
-			{Object.values(plants).map(plant => {
-				return (
-					<Plant
-						name={plant.name}
-						latin={plant.latin}
-						key={plant.id}
-						id={plant.id}
-						desc={plant.desc}
-						price={plant.price}
-						img={plant.img}
-					/>
-				);
+			{Object.keys(plants).map(key => {
+				return <Plant details={plants[key]} key={key} plantId={key} />;
 			})}
 		</div>
 	);

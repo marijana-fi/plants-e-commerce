@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Counter from "../counter/Counter";
-function CartPlantItem({ name, img, price, itemCount }) {
-	const [count, setCount] = useState(itemCount);
+import { CartContext } from "./../../context/CartContext";
+import { formatPrice } from "../../helpers";
 
-	const decrementCount = () => {
-		setCount(count === 1 ? 1 : count - 1);
-	};
-	const incrementCount = () => {
-		setCount(count + 1);
-	};
+function CartPlantItem({ details, plantId }) {
+	const { name, img, price, itemCount } = details;
+	const { cart } = useContext(CartContext);
+
 	return (
 		<div>
 			<div className="item-wrap">
@@ -17,14 +15,12 @@ function CartPlantItem({ name, img, price, itemCount }) {
 				<div className="item-info">
 					<div className="item-text">
 						<h2 className="name">{name}</h2>
-						<h3 className="price">{price}</h3>
+						<h3 className="price">
+							{formatPrice(price * cart[plantId])}
+						</h3>
 					</div>
 					<div className="count-wrap">
-						<Counter
-							count={count}
-							decrementCount={decrementCount}
-							incrementCount={incrementCount}
-						/>
+						<h5>Quantity {cart[plantId]}</h5>
 						<div className="delete-item">
 							<img src="./img/trash-icon.svg" alt="" />
 						</div>

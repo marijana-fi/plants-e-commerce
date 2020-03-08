@@ -3,15 +3,29 @@ import Counter from "../counter/Counter";
 import "./cart.scss";
 import { CartContext } from "../../context/CartContext";
 import CartPlantItem from "../cart-plant-item/CartPlantItem";
+import { formatPrice } from "./../../helpers";
 
-const Cart = () => {
+const Cart = ({ plants }) => {
 	const { isOpen, cart, toggleCart } = useContext(CartContext);
+	const orders = Object.keys(cart);
+
+	let total = 0;
+
+	if (orders.length) {
+		total = orders.reduce((prevTotal, key) => {
+			const plant = plants[key];
+			const quantity = cart[key];
+			return prevTotal + plant.price * quantity;
+		}, 0);
+	}
 
 	const handleClick = () => {
 		toggleCart();
 	};
+
 	return (
 		<div className={isOpen ? "cart-modal active" : "cart-modal"}>
+			<div className="backdrop" onClick={handleClick} />
 			<aside className="cart">
 				<div className="cart-header">
 					<h3 className="cart-title">Cart</h3>
@@ -19,34 +33,21 @@ const Cart = () => {
 						&times;
 					</button>
 				</div>
-				{cart.map(item => {
+				{Object.keys(cart).map(key => {
 					return (
 						<CartPlantItem
-							name={item.name}
-							key={item.id}
-							itemCount={item.count}
-							price={item.price}
-							img={item.img}
+							key={key}
+							plantId={key}
+							details={plants[key]}
 						/>
 					);
 				})}
-			</aside>
-
-			{/* <aside className="cart">
-				<div className="cart-header">
-					<h3 className="cart-title">Cart</h3>
-					<button className="cart-close" onClick={handleCloseClick}>
-						&times;
-					</button>
-				</div>
-				
-
 				<div className="cart-total">
 					<h3>Total</h3>
-					<h3>$00.00</h3>
+					<h3>{formatPrice(total)}</h3>
 				</div>
 				<button className="cart-checkout">Checkout</button>
-			</aside> */}
+			</aside>
 		</div>
 	);
 };
