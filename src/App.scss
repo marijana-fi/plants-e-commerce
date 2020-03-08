@@ -1,17 +1,25 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:800&display=swap");
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	font-family: "Montserrat", sans-serif;
 }
+
+:root {
+	--main-bg-color: #efe8e2;
+	--sec-bg-color: #fbf7f4;
+	--border-color: #3b2060;
+	--blurred-bg-color: rgba(53, 41, 67, 0.5);
+}
+
 a {
 	text-decoration: none;
 }
 body {
 	margin: 0;
-	background: #efe8e2;
-	font-family: "Raleway", sans-serif;
+	background: var(--main-bg-color);
 }
 
 h1 {
@@ -22,7 +30,7 @@ h1 {
 }
 
 h3 {
-	font-size: 26px;
+	font-size: 24px;
 	font-weight: 300;
 	margin-bottom: 30px;
 }
@@ -36,7 +44,7 @@ h5 {
 	margin-bottom: 40px;
 }
 p {
-	font-size: 16px;
+	font-size: 15px;
 	line-height: 1.6;
 	margin-bottom: 30px;
 	color: #454545;
@@ -50,7 +58,7 @@ img {
 button {
 	margin: 0;
 	border: 0;
-	font-family: "Raleway", sans-serif;
+
 	cursor: pointer;
 	outline: 0;
 	background: transparent;

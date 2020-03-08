@@ -33,20 +33,28 @@ const Cart = ({ plants }) => {
 						&times;
 					</button>
 				</div>
-				{Object.keys(cart).map(key => {
-					return (
-						<CartPlantItem
-							key={key}
-							plantId={key}
-							details={plants[key]}
-						/>
-					);
-				})}
+
+				{!orders.length ? (
+					<h2 className="empty">Cart is empty</h2>
+				) : (
+					Object.keys(cart).map(key => {
+						return (
+							<CartPlantItem
+								key={key}
+								plantId={key}
+								details={plants[key]}
+							/>
+						);
+					})
+				)}
+
 				<div className="cart-total">
-					<h3>Total</h3>
-					<h3>{formatPrice(total)}</h3>
+					<h3 className="total">Total</h3>
+					<h3 className="total">{formatPrice(total)}</h3>
 				</div>
-				<button className="cart-checkout">Checkout</button>
+				<button className="cart-checkout" disabled={!orders.length}>
+					Checkout
+				</button>
 			</aside>
 		</div>
 	);

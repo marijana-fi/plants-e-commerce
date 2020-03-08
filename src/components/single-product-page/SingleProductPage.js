@@ -32,7 +32,7 @@ const SingleProductPage = ({ id }) => {
 	return (
 		<div className="single-product">
 			<div className="product-img">
-				<img src={data.img} alt={data.name} />
+				<img className="image" src={data.img} alt={data.name} />
 			</div>
 			<div className="product-info">
 				<h1 className="name">{data.name}</h1>

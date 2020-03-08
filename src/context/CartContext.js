@@ -21,13 +21,20 @@ class CartContextProvider extends Component {
 		});
 	};
 
+	removeFromCart = key => {
+		const cart = { ...this.state.cart };
+		delete cart[key];
+		this.setState({ cart });
+	};
+
 	render() {
 		return (
 			<CartContext.Provider
 				value={{
 					...this.state,
 					toggleCart: this.toggleCart,
-					updateCart: this.updateCart
+					updateCart: this.updateCart,
+					removeFromCart: this.removeFromCart
 				}}
 			>
 				{this.props.children}

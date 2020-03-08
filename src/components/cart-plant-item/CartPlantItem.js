@@ -2,11 +2,15 @@ import React, { useState, useContext } from "react";
 import Counter from "../counter/Counter";
 import { CartContext } from "./../../context/CartContext";
 import { formatPrice } from "../../helpers";
+import "./cart-plant-item.scss";
 
 function CartPlantItem({ details, plantId }) {
-	const { name, img, price, itemCount } = details;
-	const { cart } = useContext(CartContext);
+	const { name, img, price, id } = details;
+	const { cart, removeFromCart } = useContext(CartContext);
 
+	const handleClick = () => {
+		removeFromCart(plantId);
+	};
 	return (
 		<div>
 			<div className="item-wrap">
@@ -15,15 +19,17 @@ function CartPlantItem({ details, plantId }) {
 				<div className="item-info">
 					<div className="item-text">
 						<h2 className="name">{name}</h2>
+						<button className="delete-item" onClick={handleClick}>
+							<img src="./img/trash-icon.svg" alt="" />
+						</button>
+					</div>
+					<div className="count-wrap">
+						<h4 className="qty">
+							Quantity: <span>{cart[plantId]}</span>
+						</h4>
 						<h3 className="price">
 							{formatPrice(price * cart[plantId])}
 						</h3>
-					</div>
-					<div className="count-wrap">
-						<h5>Quantity {cart[plantId]}</h5>
-						<div className="delete-item">
-							<img src="./img/trash-icon.svg" alt="" />
-						</div>
 					</div>
 				</div>
 			</div>

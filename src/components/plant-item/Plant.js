@@ -11,10 +11,10 @@ const Plant = ({ details, plantId }) => {
 
 	return (
 		<div className="plant-wrap" onClick={() => handlePlantClick(id)}>
-			<img src={img} alt={name} />
+			<img className="plant-img" src={img} alt={name} />
 			<div className="plant-info">
 				<h3 className="name">{name}</h3>
-				<h4>{formatPrice(price)}</h4>
+				<h4 className="price">{formatPrice(price)}</h4>
 			</div>
 		</div>
 	);

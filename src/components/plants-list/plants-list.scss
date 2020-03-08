@@ -1,6 +1,11 @@
-.plants-list {
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-	height: 100vh;
+.container {
+	width: 100%;
+	max-width: 1500px;
+	margin: 0 auto;
+	.plants-list {
+		padding-top: 100px;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 30px;
+	}
 }

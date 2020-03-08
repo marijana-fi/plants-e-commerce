@@ -43,6 +43,33 @@ const plants = {
 		desc:
 			"The Calathea Medallion gets its name from the unique roundness of its leaves. They have a brilliant green pattern on top, and are a deep burgundy underneath.",
 		img: "/img/calathea-medallion.jpg"
+	},
+	plant6: {
+		id: 6,
+		name: "Pilea",
+		latin: "Pilea Peperomioides",
+		price: 3300,
+		desc:
+			"The Pilea peperomioides, also called the pancake or UFO plant, is known for its cute coin-shaped leaves. A self-propagator, the Pilea produces sweet little babies or “pups” on it’s own, which pop up from the soil surrounding the mother plant..",
+		img: "/img/pilea.jpg"
+	},
+	plant7: {
+		id: 7,
+		name: "Maranta",
+		latin: "Maranta leucomeura",
+		price: 4000,
+		desc:
+			"Nicknamed the “prayer plant”, the Maranta is famous for the unique movements of its dramatic foliage.",
+		img: "/img/maranta.jpg"
+	},
+	plant8: {
+		id: 8,
+		name: "Marble Queen Pothos",
+		latin: "Epipremnum aureum ‘Marble Queen’",
+		price: 3300,
+		desc:
+			"The Pothos Marble and its quick growing vines full of variegated green and white leaves will make any space look more lush. It is a great choice for beginners.",
+		img: "/img/pothos.jpg"
 	}
 };
 

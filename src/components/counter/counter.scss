@@ -1,6 +1,6 @@
 .qty-wrap {
-	width: 30%;
-
+	min-width: 150px;
+	margin-right: 20px;
 	.counter {
 		display: flex;
 		align-items: center;
@@ -9,12 +9,18 @@
 		border: 1px solid #616161;
 		background: transparent;
 		height: 50px;
+		box-sizing: content-box;
 
 		button {
 			width: 33%;
 			background: transparent;
 			font-size: 28px;
 			padding: 5px 10px;
+			transition: all 0.3s;
+			&:hover {
+				background: #000;
+				color: var(--sec-bg-color);
+			}
 		}
 		span {
 			font-size: 24px;
