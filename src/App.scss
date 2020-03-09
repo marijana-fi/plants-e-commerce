@@ -28,6 +28,10 @@ h1 {
 	font-family: "Playfair Display", serif;
 	line-height: 1;
 }
+h2 {
+	font-weight: 400;
+	margin-bottom: 50px;
+}
 
 h3 {
 	font-size: 24px;
@@ -62,5 +66,36 @@ button {
 	cursor: pointer;
 	outline: 0;
 	background: transparent;
-	min-height: 50px;
+	min-height: 46px;
+	&:disabled {
+		cursor: default;
+	}
+}
+
+input[type="text"] {
+	-webkit-appearance: none;
+
+	background: none;
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid #979797;
+	color: #000;
+	outline: none;
+	width: 100%;
+}
+
+.btn {
+	min-width: 200px;
+	padding: 12px 22px;
+	font-size: 16px;
+	background-color: #000;
+	border: 1px solid #000;
+	color: var(--sec-bg-color);
+	transition: all 0.3s;
+
+	&:hover {
+		background: var(--sec-bg-color);
+		border: 1px solid #000;
+		color: #000;
+	}
 }

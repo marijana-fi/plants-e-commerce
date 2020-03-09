@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import Counter from "../counter/Counter";
+import React, { useContext } from "react";
+
 import { CartContext } from "./../../context/CartContext";
 import { formatPrice } from "../../helpers";
 import "./cart-plant-item.scss";
@@ -20,12 +20,12 @@ function CartPlantItem({ details, plantId }) {
 					<div className="item-text">
 						<h2 className="name">{name}</h2>
 						<button className="delete-item" onClick={handleClick}>
-							<img src="./img/trash-icon.svg" alt="" />
+							&times;
 						</button>
 					</div>
 					<div className="count-wrap">
 						<h4 className="qty">
-							Quantity: <span>{cart[plantId]}</span>
+							Qty: <span>{cart[plantId]}</span>
 						</h4>
 						<h3 className="price">
 							{formatPrice(price * cart[plantId])}

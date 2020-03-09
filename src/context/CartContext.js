@@ -16,9 +16,7 @@ class CartContextProvider extends Component {
 		const cart = { ...this.state.cart };
 		cart[key] = cart[key] + count || count;
 
-		this.setState({ cart }, () => {
-			console.log(this.state.cart);
-		});
+		this.setState({ cart }, () => {});
 	};
 
 	removeFromCart = key => {

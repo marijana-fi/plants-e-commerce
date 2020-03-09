@@ -32,22 +32,6 @@
 
 		.btn-wrap {
 			display: flex;
-
-			.btn {
-				min-width: 200px;
-				padding: 12px 22px;
-				font-size: 16px;
-				background-color: #000;
-				border: 1px solid #000;
-				color: var(--sec-bg-color);
-				transition: all 0.3s;
-
-				&:hover {
-					background: var(--sec-bg-color);
-					border: 1px solid #000;
-					color: #000;
-				}
-			}
 		}
 	}
 }

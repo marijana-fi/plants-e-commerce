@@ -1,0 +1,23 @@
+.form {
+	width: 100%;
+	label {
+		font-size: 12px;
+		line-height: 2;
+	}
+
+	.input-field {
+		border-bottom: 1px solid #979797;
+		padding: 6px 0;
+		margin-bottom: 20px;
+		width: 100%;
+	}
+	.elements-wrap {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+		grid-column-gap: 20px;
+		margin-bottom: 100px;
+		.input-field {
+			margin-bottom: 0;
+		}
+	}
+}

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import Counter from "../counter/Counter";
 import "./cart.scss";
 import { CartContext } from "../../context/CartContext";
 import CartPlantItem from "../cart-plant-item/CartPlantItem";
 import { formatPrice } from "./../../helpers";
+import { navigate } from "@reach/router";
 
 const Cart = ({ plants }) => {
 	const { isOpen, cart, toggleCart } = useContext(CartContext);
@@ -20,6 +20,10 @@ const Cart = ({ plants }) => {
 	}
 
 	const handleClick = () => {
+		toggleCart();
+	};
+	const handleCheckout = params => {
+		navigate("/checkout");
 		toggleCart();
 	};
 
@@ -52,7 +56,11 @@ const Cart = ({ plants }) => {
 					<h3 className="total">Total</h3>
 					<h3 className="total">{formatPrice(total)}</h3>
 				</div>
-				<button className="cart-checkout" disabled={!orders.length}>
+				<button
+					className="cart-checkout"
+					onClick={handleCheckout}
+					disabled={!orders.length}
+				>
 					Checkout
 				</button>
 			</aside>

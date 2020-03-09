@@ -4,7 +4,8 @@
 	background: #fff;
 
 	.item-img {
-		max-width: 30%;
+		max-width: 140px;
+		width: 100%;
 	}
 	.item-info {
 		display: flex;
@@ -24,20 +25,32 @@
 			.delete-item {
 				position: absolute;
 				top: -40px;
-				right: -30px;
+				right: -28px;
+				font-size: 26px;
+				font-weight: 400;
+				color: #000;
+				z-index: 1;
+				transition: all 0.3s;
 				&:before {
 					content: "";
-					width: 40px;
-					height: 40px;
+					width: 26px;
+					height: 26px;
 					position: absolute;
 					top: 50%;
 					left: 50%;
-					background: #fff;
+					background: var(--sec-bg-color);
+					border: 1px solid #606060;
 					border-radius: 50%;
 					transform: translate(-50%, -50%);
 					z-index: -1;
+					box-shadow: 0 0 0 5px var(--sec-bg-color);
+					transition: all 0.3s;
 				}
-				img {
+				&:hover {
+					color: #fff;
+					&:before {
+						background: #000;
+					}
 				}
 			}
 		}

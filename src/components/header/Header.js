@@ -1,10 +1,13 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import "./header.scss";
 import { Link } from "@reach/router";
 import { CartContext } from "./../../context/CartContext";
 
 const Header = () => {
-	const { isOpen, toggleCart } = useContext(CartContext);
+	const { cart, toggleCart } = useContext(CartContext);
+
+	const itemNumber = Object.values(cart).reduce((a, b) => a + b, 0);
+	console.log(itemNumber);
 
 	return (
 		<nav className="navbar">
@@ -13,6 +16,9 @@ const Header = () => {
 			</Link>
 			<div className="cart" onClick={toggleCart}>
 				<img src="./img/bag-icon.svg" alt="go to cart" />
+				<div className="cart-items">
+					<h6 className="item-number">{itemNumber}</h6>
+				</div>
 			</div>
 		</nav>
 	);

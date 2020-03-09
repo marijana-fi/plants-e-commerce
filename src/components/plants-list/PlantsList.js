@@ -6,7 +6,7 @@ const PlantsList = props => {
 	const { plants, selectedPlant } = props;
 
 	return (
-		<div className="container">
+		<div className="container-list">
 			<div className="plants-list">
 				{Object.keys(plants).map(key => {
 					return (
