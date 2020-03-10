@@ -5,11 +5,11 @@ const Counter = ({ incrementCount, decrementCount, count }) => {
 	return (
 		<div className="qty-wrap">
 			<div className="counter">
-				<button className="minus" onClick={decrementCount}>
+				<button className="minus btn light" onClick={decrementCount}>
 					-
 				</button>
 				<span className="qty">{count}</span>
-				<button className="plus" onClick={incrementCount}>
+				<button className="plus btn light" onClick={incrementCount}>
 					+
 				</button>
 			</div>

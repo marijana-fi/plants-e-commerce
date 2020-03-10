@@ -12,25 +12,23 @@ function CartPlantItem({ details, plantId }) {
 		removeFromCart(plantId);
 	};
 	return (
-		<div>
-			<div className="item-wrap">
-				<img className="item-img" src={img} alt={name} />
+		<div className="item-wrap">
+			<img className="item-img" src={img} alt={name} />
 
-				<div className="item-info">
-					<div className="item-text">
-						<h2 className="name">{name}</h2>
-						<button className="delete-item" onClick={handleClick}>
-							&times;
-						</button>
-					</div>
-					<div className="count-wrap">
-						<h4 className="qty">
-							Qty: <span>{cart[plantId]}</span>
-						</h4>
-						<h3 className="price">
-							{formatPrice(price * cart[plantId])}
-						</h3>
-					</div>
+			<div className="item-info">
+				<div className="item-text">
+					<h2 className="name">{name}</h2>
+					<button className="delete-item" onClick={handleClick}>
+						&times;
+					</button>
+				</div>
+				<div className="count-wrap">
+					<h4 className="qty">
+						Qty: <span>{cart[plantId]}</span>
+					</h4>
+					<h3 className="price">
+						{formatPrice(price * cart[plantId])}
+					</h3>
 				</div>
 			</div>
 		</div>

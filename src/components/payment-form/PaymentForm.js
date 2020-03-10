@@ -5,7 +5,6 @@ import {
 	CardNumberElement,
 	CardCvcElement,
 	CardExpiryElement,
-	Elements,
 	useStripe,
 	useElements
 } from "@stripe/react-stripe-js";

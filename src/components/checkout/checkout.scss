@@ -8,9 +8,6 @@
 		.info {
 			margin-bottom: 100px;
 
-			.info-title {
-				margin-bottom: 50px;
-			}
 			.contact-info {
 				margin-bottom: 50px;
 
@@ -45,9 +42,7 @@
 		}
 		.item-wrap {
 			margin-bottom: 20px;
-			&:last-of-type {
-				margin-bottom: 80px;
-			}
+
 			.item-img {
 				max-width: 120px;
 				width: 100%;
@@ -60,6 +55,9 @@
 			.delete-item {
 				display: none;
 			}
+			&:last-of-type {
+				margin-bottom: 80px;
+			}
 		}
 		.cart-total {
 			display: flex;
@@ -69,6 +67,30 @@
 			.total {
 				font-weight: 400;
 				font-size: 20px;
+			}
+		}
+	}
+	@media (max-width: 1280px) {
+		.contact-wrap {
+			margin: 100px 80px 0 80px;
+		}
+	}
+	@media (max-width: 768px) {
+		.contact-wrap {
+			margin: 100px 30px 0 30px;
+			.info {
+				margin-bottom: 50px;
+			}
+		}
+		.order-summary {
+			padding: 100px 30px 0 30px;
+			.item-wrap {
+				.item-img {
+					max-width: 90px;
+				}
+				.item-info {
+					padding: 10px;
+				}
 			}
 		}
 	}

@@ -20,4 +20,13 @@
 			margin-bottom: 0;
 		}
 	}
+	.btn {
+		max-width: 300px;
+		width: 100%;
+	}
+	@media (max-width: 768px) {
+		.elements-wrap {
+			margin-bottom: 50px;
+		}
+	}
 }

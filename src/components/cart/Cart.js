@@ -57,7 +57,7 @@ const Cart = ({ plants }) => {
 					<h3 className="total">{formatPrice(total)}</h3>
 				</div>
 				<button
-					className="cart-checkout"
+					className="btn light"
 					onClick={handleCheckout}
 					disabled={!orders.length}
 				>

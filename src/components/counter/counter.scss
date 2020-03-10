@@ -5,25 +5,38 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-
 		border: 1px solid #616161;
 		background: transparent;
-		height: 46px;
+		min-height: 46px;
 		box-sizing: content-box;
 
-		button {
+		.btn {
 			width: 33%;
-			background: transparent;
 			font-size: 28px;
 			padding: 5px 10px;
-			transition: all 0.3s;
-			&:hover {
-				background: #000;
-				color: var(--sec-bg-color);
-			}
+			border: none;
 		}
 		span {
 			font-size: 24px;
+		}
+	}
+	@media (max-width: 768px) {
+		.counter {
+			min-height: 36px;
+			.btn {
+				font-size: 24px;
+			}
+			span {
+				font-size: 20px;
+			}
+		}
+	}
+	@media (max-width: 480px) {
+		min-width: 100px;
+		.counter {
+			span {
+				font-size: 16px;
+			}
 		}
 	}
 }

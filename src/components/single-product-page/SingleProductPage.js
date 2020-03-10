@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import Counter from "../counter/Counter";
 import SamplePlants from "../../SamplePlants";
 import "./single-product-page.scss";
@@ -7,7 +7,7 @@ import { formatPrice } from "../../helpers";
 
 const SingleProductPage = ({ id }) => {
 	const [count, setCount] = useState(1);
-	const { isOpen, toggleCart, cart, updateCart } = useContext(CartContext);
+	const { toggleCart, updateCart } = useContext(CartContext);
 
 	const decrementCount = () => {
 		setCount(count === 1 ? 1 : count - 1);

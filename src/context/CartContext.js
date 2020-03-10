@@ -1,5 +1,5 @@
 import React, { createContext, Component } from "react";
-import Plant from "./../components/plant-item/Plant";
+
 export const CartContext = createContext();
 
 class CartContextProvider extends Component {
@@ -14,6 +14,8 @@ class CartContextProvider extends Component {
 
 	updateCart = (key, count) => {
 		const cart = { ...this.state.cart };
+		console.log(cart);
+
 		cart[key] = cart[key] + count || count;
 
 		this.setState({ cart }, () => {});
