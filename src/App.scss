@@ -46,9 +46,13 @@ h2 {
 	font-weight: 400;
 	font-size: 24px;
 	margin-bottom: 50px;
+	@media (max-width: 1280px) {
+		font-size: 22px;
+	}
 	@media (max-width: 768px) {
-		font-size: 20px;
-		margin-bottom: 30px;
+		font-size: 18px;
+		margin-bottom: 20px;
+		line-height: 1;
 	}
 }
 
@@ -88,6 +92,33 @@ img {
 	width: 100%;
 	display: block;
 }
+input[type="text"] {
+	-webkit-appearance: none;
+	background: none;
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid #979797;
+	color: #000;
+	outline: none;
+	width: 100%;
+	position: relative;
+	font-size: 16px;
+	&:not(:placeholder-shown) + label {
+		opacity: 1;
+		transform: translateY(-10px);
+	}
+	&:focus {
+		border-bottom: 1px solid #000;
+	}
+
+	+ label {
+		position: absolute;
+		top: -15px;
+		left: 0;
+		opacity: 0;
+		transition: all 0.3s;
+	}
+}
 
 button {
 	margin: 0;
@@ -107,18 +138,6 @@ button {
 	&:focus {
 		box-shadow: 0 0 0 2px var(--main-bg-color), 0 0 0 3px #454545;
 	}
-}
-
-input[type="text"] {
-	-webkit-appearance: none;
-
-	background: none;
-	border-radius: 0;
-	border: none;
-	border-bottom: 1px solid #979797;
-	color: #000;
-	outline: none;
-	width: 100%;
 }
 
 .btn {

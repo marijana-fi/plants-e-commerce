@@ -79,4 +79,20 @@
 			}
 		}
 	}
+	@media (max-width: 768px) {
+		.item-img {
+			max-width: 110px;
+		}
+		.item-info {
+			padding: 10px;
+
+			.count-wrap {
+				.qty {
+					span {
+						font-size: 16px;
+					}
+				}
+			}
+		}
+	}
 }
