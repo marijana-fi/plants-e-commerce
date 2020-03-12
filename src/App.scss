@@ -106,7 +106,12 @@ input[type="text"] {
 	&:not(:placeholder-shown) + label {
 		opacity: 1;
 		transform: translateY(-10px);
+		color: #696969;
+		@media (max-width: 480px) {
+			transform: translateY(-6px);
+		}
 	}
+
 	&:focus {
 		border-bottom: 1px solid #000;
 	}
@@ -114,9 +119,10 @@ input[type="text"] {
 	+ label {
 		position: absolute;
 		top: -15px;
-		left: 0;
 		opacity: 0;
+		left: 0;
 		transition: all 0.3s;
+		font-size: 14px;
 	}
 }
 
@@ -185,6 +191,7 @@ button {
 	}
 	@media (max-width: 480px) {
 		font-size: 12px;
+		max-width: 100%;
 	}
 }
 

@@ -1,7 +1,7 @@
 .form {
 	width: 100%;
 	label {
-		font-size: 12px;
+		font-size: 14px;
 		line-height: 2;
 	}
 
@@ -10,6 +10,9 @@
 		padding: 6px 0;
 		margin-bottom: 20px;
 		width: 100%;
+		&.StripeElement--focus {
+			border-bottom: 1px solid #000;
+		}
 	}
 	.elements-wrap {
 		display: grid;
@@ -27,6 +30,16 @@
 	@media (max-width: 768px) {
 		.elements-wrap {
 			margin-bottom: 50px;
+		}
+	}
+	@media (max-width: 480px) {
+		.form {
+			label {
+				line-height: 1;
+			}
+			.btn {
+				max-width: 100%;
+			}
 		}
 	}
 }

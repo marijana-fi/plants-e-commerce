@@ -10,7 +10,7 @@ const Header = () => {
 	return (
 		<div className="nav-container">
 			<nav className="navbar">
-				<Link to="/">
+				<Link to="/" className="logo-link">
 					<h3 className="logo">Plants</h3>
 				</Link>
 				<button className="cart" onClick={toggleCart}>

@@ -35,6 +35,7 @@
 				transition: all 0.3s;
 				line-height: 1;
 				border-radius: 50%;
+
 				&:before {
 					content: "";
 					width: 100%;
@@ -49,6 +50,12 @@
 					z-index: -1;
 					box-shadow: 0 0 0 5px var(--sec-bg-color);
 					transition: all 0.3s;
+				}
+				&:focus {
+					&:before {
+						box-shadow: 0 0 0 1px var(--sec-bg-color),
+							0 0 0 2px #454545;
+					}
 				}
 				&:hover {
 					color: #fff;
