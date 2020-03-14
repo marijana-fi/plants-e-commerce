@@ -24,51 +24,8 @@ const Checkout = ({ plants }) => {
 	return (
 		<div className="container">
 			<div className="contact-wrap">
-				<div className="info">
-					<h2 className="info-title">Billing information</h2>
-					<form className="contact-info">
-						<div className="label-input">
-							<input
-								type="text"
-								id="first-name"
-								placeholder="First Name"
-								required
-							/>
-							<label htmlFor="first-name">First Name</label>
-						</div>
-						<div className="label-input">
-							<input
-								type="text"
-								id="last-name"
-								placeholder="Last Name"
-								required
-							/>
-							<label htmlFor="last-name">Last Name</label>
-						</div>
-					</form>
-					<form className="contact-info">
-						<div className="label-input">
-							<input
-								type="text"
-								id="country"
-								placeholder="Country"
-								required
-							/>
-							<label htmlFor="country">Country</label>
-						</div>
-						<div className="label-input">
-							<input
-								type="text"
-								id="city"
-								placeholder="City"
-								required
-							/>
-							<label htmlFor="city">City</label>
-						</div>
-					</form>
-				</div>
 				<Elements stripe={stripePromise}>
-					<PaymentForm />
+					<PaymentForm total={total} />
 				</Elements>
 			</div>
 

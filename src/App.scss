@@ -48,6 +48,7 @@ h2 {
 	margin-bottom: 50px;
 	@media (max-width: 1280px) {
 		font-size: 22px;
+		margin-bottom: 35px;
 	}
 	@media (max-width: 768px) {
 		font-size: 18px;
@@ -92,7 +93,7 @@ img {
 	width: 100%;
 	display: block;
 }
-input[type="text"] {
+input {
 	-webkit-appearance: none;
 	background: none;
 	border-radius: 0;
@@ -102,13 +103,14 @@ input[type="text"] {
 	outline: none;
 	width: 100%;
 	position: relative;
-	font-size: 16px;
+	font-size: 15px;
+
 	&:not(:placeholder-shown) + label {
 		opacity: 1;
 		transform: translateY(-10px);
 		color: #696969;
 		@media (max-width: 480px) {
-			transform: translateY(-6px);
+			transform: translateY(10px);
 		}
 	}
 
@@ -124,6 +126,12 @@ input[type="text"] {
 		transition: all 0.3s;
 		font-size: 14px;
 	}
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-box-shadow: 0 0 0px 1000px var(--main-bg-color) inset;
 }
 
 button {
