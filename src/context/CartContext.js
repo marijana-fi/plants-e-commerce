@@ -14,7 +14,6 @@ class CartContextProvider extends Component {
 
 	updateCart = (key, count) => {
 		const cart = { ...this.state.cart };
-		console.log(cart);
 
 		cart[key] = cart[key] + count || count;
 

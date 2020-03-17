@@ -99,3 +99,23 @@
 		}
 	}
 }
+
+.empty-checkout {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	h2 {
+		font-size: 30px;
+	}
+	.home-link {
+		text-decoration: underline;
+		.logo {
+			font-size: 18px;
+			font-weight: 500;
+			font-family: "Montserrat", sans-serif;
+		}
+	}
+}

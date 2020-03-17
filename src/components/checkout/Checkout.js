@@ -6,8 +6,10 @@ import PaymentForm from "../payment-form/PaymentForm";
 import CartPlantItem from "../cart-plant-item/CartPlantItem";
 import { CartContext } from "./../../context/CartContext";
 import { formatPrice } from "./../../helpers";
+import { Link } from "@reach/router";
 
 const stripePromise = loadStripe("pk_test_BLj4krRrl37dHt7q5Sbk2klf00W1ckUZfZ");
+
 const Checkout = ({ plants }) => {
 	const { cart } = useContext(CartContext);
 	const orders = Object.keys(cart);
@@ -21,7 +23,19 @@ const Checkout = ({ plants }) => {
 			return prevTotal + plant.price * quantity;
 		}, 0);
 	}
-	return (
+
+	const renderEmpty = () => {
+		return (
+			<div className="empty-checkout">
+				<h2>Your cart is currently empty.</h2>
+				<Link to="/" className="home-link">
+					<h3 className="logo">Return to shop</h3>
+				</Link>
+			</div>
+		);
+	};
+
+	return orders.length ? (
 		<div className="container">
 			<div className="contact-wrap">
 				<Elements stripe={stripePromise}>
@@ -46,6 +60,8 @@ const Checkout = ({ plants }) => {
 				</div>
 			</div>
 		</div>
+	) : (
+		renderEmpty()
 	);
 };
 

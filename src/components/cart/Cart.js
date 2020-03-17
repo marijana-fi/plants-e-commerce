@@ -39,7 +39,7 @@ const Cart = ({ plants }) => {
 				</div>
 
 				{!orders.length ? (
-					<h2 className="empty">Cart is empty</h2>
+					<h2 className="empty">Your cart is currently empty.</h2>
 				) : (
 					Object.keys(cart).map(key => {
 						return (

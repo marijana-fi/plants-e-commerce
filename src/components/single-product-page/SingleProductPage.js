@@ -38,7 +38,7 @@ const SingleProductPage = ({ id }) => {
 				<h1 className="name">{data.name}</h1>
 				<h5 className="latin">{data.latin}</h5>
 				<h3 className="price">{formatPrice(data.price)}</h3>
-				<h4 className="desc">Size</h4>
+
 				<p className="desc">{data.desc}</p>
 
 				<div className="btn-wrap">
