@@ -14,6 +14,14 @@ const PlantsList = props => {
 					);
 				})}
 			</div>
+			<footer>
+				<h5>
+					Content was acquired from{" "}
+					<a href="https://www.thesill.com/" className="link">
+						thesill.com
+					</a>
+				</h5>
+			</footer>
 		</div>
 	);
 };
