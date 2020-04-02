@@ -5,7 +5,8 @@ export const CartContext = createContext();
 class CartContextProvider extends Component {
 	state = {
 		isOpen: false,
-		cart: {}
+		cart: {},
+		isCartIconHidden: false
 	};
 
 	toggleCart = () => {
@@ -26,6 +27,13 @@ class CartContextProvider extends Component {
 		this.setState({ cart });
 	};
 
+	hideCartIcon = () => {
+		this.setState({ isCartIconHidden: true });
+	};
+	revealCartIcon = params => {
+		this.setState({ isCartIconHidden: false });
+	};
+
 	render() {
 		return (
 			<CartContext.Provider
@@ -33,7 +41,9 @@ class CartContextProvider extends Component {
 					...this.state,
 					toggleCart: this.toggleCart,
 					updateCart: this.updateCart,
-					removeFromCart: this.removeFromCart
+					removeFromCart: this.removeFromCart,
+					hideCartIcon: this.hideCartIcon,
+					revealCartIcon: this.revealCartIcon
 				}}
 			>
 				{this.props.children}

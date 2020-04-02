@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./payment-form.scss";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import api from "./../../api";
+import { CartContext } from "../../context/CartContext";
 
 const PaymentForm = ({ total }) => {
 	const stripe = useStripe();
@@ -11,6 +12,8 @@ const PaymentForm = ({ total }) => {
 	const [metadata, setMetadata] = useState(null);
 	const [succeeded, setSucceeded] = useState(false);
 	const [processing, setProcessing] = useState(false);
+	const { cart } = useContext(CartContext);
+	console.log(cart);
 
 	const [billingDetails, setBillingDetails] = useState({
 		email: "",

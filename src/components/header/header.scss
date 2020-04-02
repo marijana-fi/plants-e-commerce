@@ -12,7 +12,6 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		z-index: 1;
 
 		.cart {
 			width: 40px;
@@ -21,6 +20,10 @@
 			transition: transform 0.3s;
 			border-radius: 50%;
 			transition: 0.3s;
+			z-index: 1;
+			&.hide {
+				z-index: 0;
+			}
 			&:hover {
 				cursor: pointer;
 				&:before {

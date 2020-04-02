@@ -6,7 +6,7 @@ import { formatPrice } from "./../../helpers";
 import { navigate } from "@reach/router";
 
 const Cart = ({ plants }) => {
-	const { isOpen, cart, toggleCart } = useContext(CartContext);
+	const { isOpen, cart, toggleCart, hideCartIcon } = useContext(CartContext);
 	const orders = Object.keys(cart);
 
 	let total = 0;
@@ -25,6 +25,7 @@ const Cart = ({ plants }) => {
 	const handleCheckout = params => {
 		navigate("/checkout");
 		toggleCart();
+		hideCartIcon();
 	};
 
 	return (

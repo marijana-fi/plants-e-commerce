@@ -161,6 +161,7 @@ button {
 		margin-bottom: 0;
 		font-family: "Playfair Display", serif;
 		position: relative;
+		z-index: 1;
 		&:after {
 			content: "";
 			width: 100%;
