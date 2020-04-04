@@ -155,6 +155,21 @@ button {
 	}
 }
 
+.message {
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	h3 {
+		margin-bottom: 0;
+	}
+}
+
+.error {
+	margin-top: 20px;
+	color: #cb0f0f;
+}
+
 .home-link {
 	.logo {
 		color: #000;

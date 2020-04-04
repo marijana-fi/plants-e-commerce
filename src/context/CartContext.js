@@ -27,10 +27,15 @@ class CartContextProvider extends Component {
 		this.setState({ cart });
 	};
 
+	clearCart = () => {
+		this.setState({ cart: {} });
+	};
+
 	hideCartIcon = () => {
 		this.setState({ isCartIconHidden: true });
 	};
-	revealCartIcon = params => {
+
+	revealCartIcon = () => {
 		this.setState({ isCartIconHidden: false });
 	};
 
@@ -43,7 +48,8 @@ class CartContextProvider extends Component {
 					updateCart: this.updateCart,
 					removeFromCart: this.removeFromCart,
 					hideCartIcon: this.hideCartIcon,
-					revealCartIcon: this.revealCartIcon
+					revealCartIcon: this.revealCartIcon,
+					clearCart: this.clearCart
 				}}
 			>
 				{this.props.children}
