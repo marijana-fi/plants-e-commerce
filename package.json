@@ -30,7 +30,7 @@
 		"start:server": "netlify-lambda serve server",
 		"build": "npm-run-all --parallel build:**",
 		"build:app": "react-scripts build",
-		"build:functions": "netlify-lambda build functions",
+		"build:functions": "netlify-lambda build server",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
