@@ -1,20 +1,20 @@
-const createPaymentIntent = options => {
+const createPaymentIntent = (options) => {
 	return window
-		.fetch(`http://localhost:8080/create-payment-intent`, {
+		.fetch(`/.netlify/functions/server`, {
 			method: "POST",
 			headers: {
-				"Content-Type": "application/json"
+				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(options)
+			body: JSON.stringify(options),
 		})
-		.then(res => {
+		.then((res) => {
 			if (res.status === 200) {
 				return res.json();
 			} else {
 				return null;
 			}
 		})
-		.then(data => {
+		.then((data) => {
 			if (!data || data.error) {
 				console.log("API error:", { data });
 				throw new Error("PaymentIntent API Error");
@@ -25,7 +25,7 @@ const createPaymentIntent = options => {
 };
 
 const api = {
-	createPaymentIntent
+	createPaymentIntent,
 };
 
 export default api;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./counter.scss";
 
 const Counter = ({ incrementCount, decrementCount, count }) => {

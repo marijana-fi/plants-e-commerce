@@ -1,15 +1,15 @@
-const env = require("dotenv").config({ path: "../env" });
-const stripe = require("stripe")(YOUR_SECRET_KEY);
+const env = require("dotenv").config();
+const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY);
 const express = require("express");
 const router = express.Router();
 
-router.post("/create-payment-intent", async (req, res) => {
+router.post("/", async (req, res) => {
 	const body = req.body;
 
 	const options = {
 		...body,
 		amount: req.body.amount,
-		currency: "USD"
+		currency: "USD",
 	};
 
 	try {
