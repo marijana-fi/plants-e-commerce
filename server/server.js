@@ -1,8 +1,8 @@
 const env = require("dotenv").config();
 const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY);
 const express = require("express");
-const path = require("path");
 const serverless = require("serverless-http");
+const path = require("path");
 const router = express.Router();
 const cors = require("cors");
 const app = express();
@@ -34,5 +34,5 @@ app.use(`/.netlify/functions/server`, router);
 // app.listen(process.env.PORT || 8080, () => {
 // 	console.log("listening on port 8080");
 // });
-
+module.exports = app;
 module.exports.handler = serverless(app);
