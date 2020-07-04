@@ -37,13 +37,7 @@ const PaymentForm = ({ total, setSucceeded }) => {
 
 	const handleSubmit = async (ev) => {
 		ev.preventDefault();
-
 		if (!stripe || !elements) {
-			return;
-		}
-
-		if (error) {
-			elements.getElement("card").focus();
 			return;
 		}
 
@@ -56,12 +50,10 @@ const PaymentForm = ({ total, setSucceeded }) => {
 
 		if (payload.error) {
 			setError(`Payment failed: ${payload.error.message}`);
-
 			console.log("[error]", payload.error);
 		} else {
 			setError(null);
 			setSucceeded(true);
-
 			setMetadata(payload.paymentIntent);
 			console.log("[PaymentIntent]", payload.paymentIntent);
 		}
@@ -147,8 +139,11 @@ const PaymentForm = ({ total, setSucceeded }) => {
 							onChange={handleChange}
 						/>
 					</label>
+					{error ? (
+						<div className="error message">{error}</div>
+					) : null}
 				</div>
-				{error ? <div className="error message">{error}</div> : null}
+
 				<button
 					className="btn"
 					type="submit"
