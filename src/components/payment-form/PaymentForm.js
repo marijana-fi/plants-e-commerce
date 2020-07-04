@@ -8,31 +8,36 @@ const PaymentForm = ({ total, setSucceeded }) => {
 	const elements = useElements();
 	const [clientSecret, setClientSecret] = useState(null);
 	const [error, setError] = useState(null);
+	const [cardCompleted, setCardCompleted] = useState(false);
 	const [metadata, setMetadata] = useState(null);
-	const [processing, setProcessing] = useState(false);
 
 	const [billingDetails, setBillingDetails] = useState({
 		email: "",
 		phone: "",
 		name: "",
-		address: ""
+		address: "",
 	});
 
 	useEffect(() => {
 		api.createPaymentIntent({
 			payment_method_types: ["card"],
-			amount: total
+			amount: total,
 		})
-			.then(clientSecret => {
+			.then((clientSecret) => {
 				setClientSecret(clientSecret);
 			})
-			.catch(err => {
+			.catch((err) => {
 				setError(err.message);
 			});
 	}, []);
 
-	const handleSubmit = async ev => {
+	const handleChange = (event) => {
+		setCardCompleted(event.complete);
+	};
+
+	const handleSubmit = async (ev) => {
 		ev.preventDefault();
+
 		if (!stripe || !elements) {
 			return;
 		}
@@ -45,18 +50,17 @@ const PaymentForm = ({ total, setSucceeded }) => {
 		const payload = await stripe.confirmCardPayment(clientSecret, {
 			payment_method: {
 				card: elements.getElement(CardElement),
-				billing_details: billingDetails
-			}
+				billing_details: billingDetails,
+			},
 		});
 
 		if (payload.error) {
 			setError(`Payment failed: ${payload.error.message}`);
-			setProcessing(false);
+
 			console.log("[error]", payload.error);
 		} else {
 			setError(null);
 			setSucceeded(true);
-			setProcessing(false);
 
 			setMetadata(payload.paymentIntent);
 			console.log("[PaymentIntent]", payload.paymentIntent);
@@ -75,10 +79,10 @@ const PaymentForm = ({ total, setSucceeded }) => {
 								id="name"
 								placeholder="Name"
 								required
-								onChange={e => {
+								onChange={(e) => {
 									setBillingDetails({
 										...billingDetails,
-										name: e.target.value
+										name: e.target.value,
 									});
 								}}
 							/>
@@ -90,10 +94,10 @@ const PaymentForm = ({ total, setSucceeded }) => {
 								id="address"
 								placeholder="Address"
 								required
-								onChange={e => {
+								onChange={(e) => {
 									setBillingDetails({
 										...billingDetails,
-										address: e.target.value
+										address: e.target.value,
 									});
 								}}
 							/>
@@ -107,10 +111,10 @@ const PaymentForm = ({ total, setSucceeded }) => {
 								id="email"
 								placeholder="Email"
 								required
-								onChange={e => {
+								onChange={(e) => {
 									setBillingDetails({
 										...billingDetails,
-										email: e.target.value
+										email: e.target.value,
 									});
 								}}
 							/>
@@ -122,10 +126,10 @@ const PaymentForm = ({ total, setSucceeded }) => {
 								id="phone"
 								placeholder="Phone"
 								required
-								onChange={e => {
+								onChange={(e) => {
 									setBillingDetails({
 										...billingDetails,
-										phone: e.target.value
+										phone: e.target.value,
 									});
 								}}
 							/>
@@ -138,21 +142,21 @@ const PaymentForm = ({ total, setSucceeded }) => {
 					<h2>Payment</h2>
 					<label>
 						Card Number
-						<CardElement className="input-field" />
+						<CardElement
+							className="input-field"
+							onChange={handleChange}
+						/>
 					</label>
 				</div>
+				{error ? <div className="error message">{error}</div> : null}
 				<button
 					className="btn"
 					type="submit"
-					disabled={!stripe || processing}
+					disabled={!stripe || !cardCompleted}
 				>
 					Pay
 				</button>
 			</form>
-
-			{error ? (
-				<div className="error message">Something went wrong</div>
-			) : null}
 		</>
 	);
 };
