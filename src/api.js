@@ -1,6 +1,6 @@
 const createPaymentIntent = (options) => {
 	return window
-		.fetch(`/.netlify/functions/server`, {
+		.fetch(`https://plants-server.netlify.app/.netlify/functions/server`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
