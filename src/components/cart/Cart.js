@@ -22,7 +22,7 @@ const Cart = ({ plants }) => {
 	const handleClick = () => {
 		toggleCart();
 	};
-	const handleCheckout = params => {
+	const handleCheckout = (params) => {
 		navigate("/checkout");
 		toggleCart();
 		hideCartIcon();
@@ -34,7 +34,11 @@ const Cart = ({ plants }) => {
 			<aside className="cart">
 				<div className="cart-header">
 					<h3 className="cart-title">Cart</h3>
-					<button className="cart-close" onClick={handleClick}>
+					<button
+						className="cart-close"
+						onClick={handleClick}
+						aria-label="Close Cart"
+					>
 						&times;
 					</button>
 				</div>
@@ -42,7 +46,7 @@ const Cart = ({ plants }) => {
 				{!orders.length ? (
 					<h2 className="empty">Your cart is currently empty.</h2>
 				) : (
-					Object.keys(cart).map(key => {
+					Object.keys(cart).map((key) => {
 						return (
 							<CartPlantItem
 								key={key}

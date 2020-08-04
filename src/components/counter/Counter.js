@@ -5,11 +5,21 @@ const Counter = ({ incrementCount, decrementCount, count }) => {
 	return (
 		<div className="qty-wrap">
 			<div className="counter">
-				<button className="minus btn light" onClick={decrementCount}>
+				<button
+					className="minus btn light"
+					onClick={decrementCount}
+					aria-label="Decrease Quantity"
+				>
 					-
 				</button>
-				<span className="qty">{count}</span>
-				<button className="plus btn light" onClick={incrementCount}>
+				<span className="qty" aria-label="Quantity">
+					{count}
+				</span>
+				<button
+					className="plus btn light"
+					onClick={incrementCount}
+					aria-label="Increase Quantity"
+				>
 					+
 				</button>
 			</div>

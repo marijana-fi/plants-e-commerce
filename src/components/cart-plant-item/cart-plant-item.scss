@@ -13,6 +13,7 @@
 		justify-content: space-between;
 		padding: 20px;
 		width: 100%;
+		position: relative;
 		.item-text {
 			display: flex;
 			justify-content: space-between;
@@ -22,46 +23,46 @@
 			.name {
 				font-family: "Playfair Display", serif;
 			}
-			.delete-item {
-				position: absolute;
-				width: 24px;
-				height: 24px;
-				top: -50%;
-				right: -25px;
-				font-size: 20px;
-				font-weight: 400;
-				color: #000;
-				z-index: 1;
-				transition: all 0.3s;
-				line-height: 1;
-				border-radius: 50%;
+		}
+		.delete-item {
+			position: absolute;
+			width: 24px;
+			height: 24px;
+			top: 0;
+			right: 0;
+			transform: translate(50%, -50%);
+			font-size: 20px;
+			font-weight: 400;
+			color: #000;
+			z-index: 1;
+			transition: all 0.3s;
+			line-height: 1;
+			border-radius: 50%;
 
+			&:before {
+				content: "";
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				background: var(--sec-bg-color);
+				border: 1px solid #c3c3c3;
+				border-radius: 50%;
+				transform: translate(-50%, -50%);
+				z-index: -1;
+				box-shadow: 0 0 0 5px var(--sec-bg-color);
+				transition: all 0.3s;
+			}
+			&:focus {
 				&:before {
-					content: "";
-					width: 100%;
-					height: 100%;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					background: var(--sec-bg-color);
-					border: 1px solid #c3c3c3;
-					border-radius: 50%;
-					transform: translate(-50%, -50%);
-					z-index: -1;
-					box-shadow: 0 0 0 5px var(--sec-bg-color);
-					transition: all 0.3s;
+					box-shadow: 0 0 0 1px var(--sec-bg-color), 0 0 0 2px #454545;
 				}
-				&:focus {
-					&:before {
-						box-shadow: 0 0 0 1px var(--sec-bg-color),
-							0 0 0 2px #454545;
-					}
-				}
-				&:hover {
-					color: #fff;
-					&:before {
-						background: #000;
-					}
+			}
+			&:hover {
+				color: #fff;
+				&:before {
+					background: #000;
 				}
 			}
 		}

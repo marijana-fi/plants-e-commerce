@@ -8,13 +8,13 @@ const Header = () => {
 		CartContext
 	);
 	const itemNumber = Object.values(cart).reduce((a, b) => a + b, 0);
-	const handleClick = params => {
+	const handleClick = (params) => {
 		revealCartIcon();
 	};
 	return (
 		<div className="nav-container">
 			<nav className="navbar">
-				<Link to="/" className="home-link">
+				<Link to="/" className="home-link" aria-label="Go to home page">
 					<h3 className="logo" onClick={handleClick}>
 						Plants
 					</h3>

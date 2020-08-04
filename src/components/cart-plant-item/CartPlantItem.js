@@ -18,10 +18,14 @@ function CartPlantItem({ details, plantId }) {
 			<div className="item-info">
 				<div className="item-text">
 					<h2 className="name">{name}</h2>
-					<button className="delete-item" onClick={handleClick}>
-						&times;
-					</button>
 				</div>
+				<button
+					className="delete-item"
+					onClick={handleClick}
+					aria-label="Delete Item"
+				>
+					&times;
+				</button>
 				<div className="count-wrap">
 					<h4 className="qty">
 						Qty: <span>{cart[plantId]}</span>
